@@ -1,0 +1,52 @@
+
+.shop-wraper,
+.filter-panel,
+.products-list {
+    overflow-y: auto ;
+}
+
+.filter-panel {
+    margin-left: 10px;
+    padding: 10px;    
+}
+
+.shop-wraper {
+    display: flex;
+}
+
+@media (max-width: 767px){
+    .shop-wraper{
+        flex-wrap: wrap;
+    }
+}
+
+
+@media (min-width: 768px){
+    .filter-panel {
+        flex: 0 0 33.3333333333%;
+        max-width: 33.3333333333%;
+}
+}
+
+@media (min-width: 992px){
+    .filter-panel {
+        flex: 0 0 25%;
+        max-width: 25%;
+}}
+
+@media (min-width: 1200px){
+    .filter-panel {
+        flex: 0 0 263px;
+        max-width: 263px;
+}}
+
+
+
+@media (max-width: 767px) {
+    .filter-panel {
+    /* height: 0; */
+    display: none;
+    transition: height 0.3s;
+    overflow: hidden;
+}
+}
