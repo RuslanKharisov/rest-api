@@ -6,11 +6,11 @@ import './styles.css'
 
 const ProductList = observer(() => {
     const { product } = useContext(Context)
-    console.log("ProductList ~ product:", product[1])
+    
 
     return (
         <div className='product-list'>
-                {product.products.map(product => (
+                {product.products.map(product => (                    
                     <ProductItem key={product.id} product={product} />
                 ))}
         </div>

@@ -2,12 +2,9 @@ import {makeAutoObservable} from 'mobx'
 
 export default class MaterialStore {
     constructor() {
-        this._materials = [
-            {id: 101, name: 'Клееный брус'},
-            {id: 102, name: 'Оцилиндрованное бревно'},
-            {id: 103, name: 'Бревно ручной рубки'},
-        ];
+        this._materials = [];
         this._checkedMaterial = {}
+        this._selectedMaterial = {}
         makeAutoObservable(this)
     }
 
@@ -15,17 +12,22 @@ export default class MaterialStore {
         this._materials = materials
     }
 
-    setCheckedMaterial(materials) {
-        this._checkedMaterial = materials
-        console.log(materials.name)
-    }
-
     get materials() {
         return this._materials
     }
 
-    get checkedMaterial() {
-        return this._checkedMaterial
+    setCheckedMaterial(id) {
+        let materials = this._materials;
+        const index = materials.map(material => material.id).indexOf(id);
+        materials[index].checked = !materials[index].checked;
+
     }
 
+    setSelectedMaterial(material) {
+        this._selectedMaterial = material
+    }
+
+    get selectedMaterial() {
+        return this._selectedMaterial
+    }
 }

@@ -1,64 +1,23 @@
-.project-info h1 {
-    margin: 0 0 20px;
-    font-size: 40px;
-    font-weight: 500;
-}
+/* Projects Single page */
 
-.project-info__row {
-    display: flex;
-}
-
-
-.project-info__media {
-    flex: 0 0 75%;
-    max-width: 75%;
-    padding: 0 15px;
-    
-}
-
-.project-info__column{
-    color: #333333;
-    flex: 0 0 25%;
-    display: flex;
-    flex-direction: column;
-    max-width: 25%;
-    padding: 0 15px;
-}
-
-.project-info__info {
-    color: #5D7446;
-    font-size: 20px;
-    font-weight: 500;
-    margin: 2px 0 20px 0;
-}
-
- .project-info__rooms {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
- }
-
-.project-info__rooms-type {
-    margin-right: 25px;
-    
- }
-
-.project-info__rooms-num {
-    display: inline-flex;
-    align-items: center;
+.project-title {
     font-size: 30px;
-}
-
-.project-info__rooms-num span {
-    font-size: 30px;
-    margin-right: 15px;
-}
-
-.project-info__btn {
-    font-size: 18px;
-    background-color: #61724B;
-    padding: 10px 25px;
-    margin: 0 auto;
-    border-radius: 8px;
-    color: rgb(255, 255, 255);
-}
+  }
+  
+  .project-info-label {
+    color: #303030;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  
+  .project-info-content {
+    font-size: 12px;
+  }
+  
+  .project-info li {
+    margin-bottom: 5px;
+  }
+  
+  .project-link {
+    margin-top: 15px;
+  }

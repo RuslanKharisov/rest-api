@@ -1,12 +1,24 @@
 import './styles.css'
-import React from 'react'
-import { Container } from '@mui/material'
+import React, { useContext, useEffect } from 'react'
 import SearchBar from '../../components/SearchBar'
-import FilterPanel from '../../components/FilterPanel'
+import FilterPanel from '../../components/FilterPanel/FilterPanel'
 import ProductList from '../../components/ProductList/ProductList'
+import { observer } from 'mobx-react-lite'
+import { Context } from '../../index'
+import { fetchTypes, fetchMateriials, fetchProducts } from '../../http/deviceAPI'
 
 
-const Shop = () => {
+const Shop = observer ( () => {
+    const {type, material, product} = useContext(Context)
+
+        
+    useEffect(() => {
+        fetchTypes().then(data => type.setTypes(data))
+        fetchMateriials().then(data => material.setMaterials(data))
+        fetchProducts().then(data => product.setProducts(data.rows))
+
+    }, [])
+
     return (
         <div >
             <SearchBar />
@@ -20,6 +32,6 @@ const Shop = () => {
             </div>
         </div>
     )
-}
+});
 
 export default Shop

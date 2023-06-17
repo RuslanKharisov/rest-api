@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
+import { LOGIN_ROUTE, REGISTRATION_ROUTE, PROJECTS_ROUTE } from '../utils/consts';
+import { registration, login } from '../http/userAPI';
+import { Context } from '../index';
 import { Box, Button, TextField, Typography, Avatar, CssBaseline, Container, Grid, Link, Checkbox, FormControlLabel  } from '@mui/material'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { NavLink, useLocation } from 'react-router-dom';
-import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../utils/consts';
 
 const theme = createTheme();
 
@@ -20,18 +23,31 @@ function Copyright(props) {
     );
   }
 
-const Auth = () => {
-
+const Auth = observer( () => {
+    const {user} = useContext(Context)
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const location = useLocation()
     const isLogin = location.pathname === LOGIN_ROUTE
-  
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-        email: data.get('email'),
-        password: data.get('password'),
-        });
+    const navigate = useNavigate();
+    
+
+   
+    const click = async () => {
+        try {
+            let userData;
+            
+            if (isLogin) {
+                userData = await login(email, password);
+            } else {
+                userData = await registration(email, password);
+            }
+            user.setUser(user);
+            user.setIsAuth(true);
+            navigate(PROJECTS_ROUTE);
+        } catch (e) {
+            alert(e)
+        }
     };
 
   return (
@@ -52,7 +68,7 @@ const Auth = () => {
           <Typography component="h1" variant="h5">
             { isLogin? 'Авторизация' : 'Регистрация'}
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -62,6 +78,8 @@ const Auth = () => {
               name="email"
               autoComplete="email"
               autoFocus
+              value={email}
+              onChange={e => setEmail(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -72,16 +90,19 @@ const Auth = () => {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Запомнить пароль"
             />
             <Button
-              type="submit"
+              
               fullWidth
               variant="outlined"
               sx={{ mt: 3, mb: 2 }}
+              onClick={click}
             >
               { isLogin? 'Войти' : 'Регистрация'}
             </Button>
@@ -109,7 +130,7 @@ const Auth = () => {
       </Container>
     </ThemeProvider>
   );
-}
+});
 
 
 export default Auth

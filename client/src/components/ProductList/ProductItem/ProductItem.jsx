@@ -9,7 +9,7 @@ const ProductItem = ({ product }) => {
             <div className="product-item__wrapper">
                 <div onClick={() => navigate(PROJECT_ROUTE + '/' + product.id) } className="product-item">
                     <div className="product-item__img-wrapper">
-                        <img src={product.img} alt="image" />
+                        <img src={process.env.REACT_APP_API_URL + product.img} alt="image" />
                     </div>
                     <div className="product-item__sku">{product.sku}</div>
                     <div className="product-item__title">{product.title}</div>

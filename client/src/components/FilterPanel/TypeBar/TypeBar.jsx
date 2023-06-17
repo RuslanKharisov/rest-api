@@ -9,23 +9,24 @@ const TypeBar = () => {
 
   return (
     <div>
+        <div className="form-group__title">Тип строения</div>
         {type.types.map(CurentType =>
             <div className='custom-checkbox'
              key={CurentType.id}
              >
                 <input
+                    id={CurentType.id} 
                     type="checkbox" 
+                    className='custom-checkbox__input' 
                     checked={CurentType.checked}
                     onChange={() => type.setCheckedType(CurentType.id)} 
-                    className='custom-checkbox__input' 
-                    id={CurentType.id} 
                     name={CurentType.name} 
-                    value="yes" 
+                    // value="yes" 
                 />
                 <label className='custom-checkbox__label' htmlFor={CurentType.id}>{CurentType.name}</label>
             </div>
         )}
-    </div>       
+    </div>
   )
 }
 
