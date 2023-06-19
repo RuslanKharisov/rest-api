@@ -19,9 +19,8 @@ const ProjectInfo = () => {
 
   return (
       <div className='project-info'>
+        <div className="container">
           <section id={id} className="main-container">
-
-
                   <div className="row">
                       <div className="col-lg-8">
                           <div id="page-slider" className="page-slider small-bg">
@@ -63,6 +62,8 @@ const ProjectInfo = () => {
 
 
           </section>
+
+        </div>
 
       </div>
   )

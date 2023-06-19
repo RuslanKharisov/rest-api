@@ -3,6 +3,7 @@
     width: 100%;
     /* position: fixed; */
     z-index: 2;
+    border-bottom: solid 2px #FFFFFF;
 }
 
 .navbar {
@@ -11,10 +12,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    margin:2.6rem 0;
-    padding: auto 2rem;
+    /* border-radius: 0.5rem; */
+    /* margin:2.6rem 0; */
+    /* padding: auto 2rem; */
 }
 
 .navbar-links {
@@ -48,6 +48,7 @@
 .navigation__list {
     display: flex;
     margin-right: 2rem;
+    margin-bottom: 0;
 }
 
 .navigation__list li {

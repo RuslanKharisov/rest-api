@@ -32,7 +32,7 @@ const App = observer ( () => {
     }
 
     return (
-        <div className="container wrapper">
+        <div className="wrapper">
             <Router>
                 <NavBar />
                 <AppRouter />

@@ -3,21 +3,26 @@
 .project-title {
     font-size: 30px;
   }
-  
-  .project-info-label {
-    color: #303030;
-    font-weight: 700;
-    font-size: 14px;
-  }
-  
-  .project-info-content {
-    font-size: 12px;
-  }
-  
-  .project-info li {
-    margin-bottom: 5px;
-  }
-  
-  .project-link {
-    margin-top: 15px;
-  }
+
+.project-info {
+    flex-grow: 1;
+    padding-top: 50px;
+}
+
+.project-info-label {
+color: #303030;
+font-weight: 700;
+font-size: 14px;
+}
+
+.project-info-content {
+font-size: 12px;
+}
+
+.project-info li {
+margin-bottom: 5px;
+}
+
+.project-link {
+margin-top: 15px;
+}

@@ -20,7 +20,7 @@ const Shop = observer ( () => {
     }, [])
 
     return (
-        <div >
+        <div className='container'>
             <SearchBar />
             <div className="shop-wraper">
                 <div className="filter-panel">

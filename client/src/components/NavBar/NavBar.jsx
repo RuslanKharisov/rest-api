@@ -41,8 +41,8 @@ const NavBar = observer(() => {
     }
 
     return (
-        <>
             <div className="navbar-bg">
+                <div className="container">
                     <div className="navbar ">
                         <div className="navbar-links">
                             <div className="navbar-links__logo">
@@ -102,14 +102,12 @@ const NavBar = observer(() => {
                                         <div className="navbar-menu__container-button">
                                             <button className="btn" onClick={handleOpenUserMenu}>Авторизация</button>
                                         </div>
-                                </div>
-                                
+                                </div> 
                             )}
                         </div>
-                    </div>
+                    </div>                    
+                </div>
             </div>
-
-        </>
     );
 }
 ) 

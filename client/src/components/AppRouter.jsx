@@ -9,8 +9,8 @@ const AppRouter = () => {
     const {user} = useContext(Context)
 
   return (
-    <>
-    <Routes>
+    
+    <Routes >
         {user.isAuth && authRoutes.map(({path, element}) => 
             <Route key={path} path={path} element={element} exact/>
         )}
@@ -19,8 +19,6 @@ const AppRouter = () => {
         )}
         <Route path='*' element={<Navigate to={PROJECTS_ROUTE}/>} />
     </Routes>
-        
-    </>
 
   )
 }
